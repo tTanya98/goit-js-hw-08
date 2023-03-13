@@ -16,9 +16,13 @@ function storageFormData(e) {
 
 function onFormSubmit(e) {
     e.preventDefault();
-    if (refs.input.value === "" || refs.textarea.value === "") {
+    if (refs.input.value === "" && refs.textarea.value === "") {
         return alert(`Please, fill all the fields!`);
     }
+    const { email, message } = e.currentTarget.elemnts;
+    e.currentTarget.reset();
+    localStorage.removeItem(USER_FORM);
+    formData = {};
 }
 
 function reloadPage() {
